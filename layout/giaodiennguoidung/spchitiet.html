@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.2/dist/css/splide.min.css">
+    <script src="https://kit.fontawesome.com/7af42783d2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="asset/style.css">
+    <style>
+        .des {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .des.visible {
+            max-height: 200px; /* Set the desired max height */
+            opacity: 1;
+        }
+    </style>
+    
+</head>
+<body style="font-family: 'Segoe UI', sans-serif;
+">
+    <script>
+        function changImage(id){
+            let imagePath = document.getElementById(id).getAttribute('src');
+            document.getElementById('img-main').setAttribute('src',imagePath);
+        }
+        
+    </script>
+    <style>
+        body{
+    margin:0;
+    padding:0px;
+
+}
+
+    </style>
+    <div class="container w-[1280px] m-auto">
+        <div class="header">
+            <div class="flex justify-between mt-5 items-center">
+                <div class="evo-header-flex-item header-fill">
+                    <div class="" onclick="openMenu()">
+                        <img class="hover:bg-slate-950 hover:bg-opacity-20 " src="image/Vector.png" alt="">
+                    </div>
+                </div>
+                <div class="evo-header-flex-item header-logo">
+                    <a href="/" class="logo-wrapper" title="thethaostore.vn">
+                        <img src="https://bizweb.dktcdn.net/100/428/250/themes/822996/assets/logo.png?1681911001649"
+                            alt="">
+                    </a>
+                </div>
+                <div class=" flex ">
+                    <div class="" onclick="openTimkiem()">
+                        <i class="fa-solid fa-magnifying-glass fa-2xl mr-5"></i>
+                    </div>
+
+                    <div class="" onclick="opengioHang()">
+                        <i class="fa-solid fa-bag-shopping fa-2xl"></i>
+                        <span class="cart"></span>
+                    </div>
+                    <div class="list">
+          
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+        <div class="grid grid-cols-2 ">
+            <div class="">
+                <ul>
+                    <li><img src="https://bizweb.dktcdn.net/100/428/250/products/72d8bf68-e17e-49a9-bf32-873ccda567e4-jpeg.jpg?v=1686110882327" onclick="changImage('one')" id="one" alt=""></li>
+                    <li><img src="https://bizweb.dktcdn.net/100/428/250/products/c0eb95e0a0d8017cd739d8897d9770e1.jpg?v=1686111136087" onclick="changImage('two')" id="two"   alt=""></li>
+                    <li><img src="https://bizweb.dktcdn.net/100/428/250/products/z4407487498068-9b47c33da0c3ac22d68213ce357650b3.jpg?v=1686111136087"onclick="changImage('three')" id="three"   alt=""></li>
+                    <li><img src="https://bizweb.dktcdn.net/100/428/250/products/z4407487445740-23e6b0bb5620b2a7df12e6604dbdcdc0.jpg?v=1686111136087" onclick="changImage('for')" id="for"  alt=""></li>
+                    <li></li>
+                </ul>
+                <div class="" id="main-image">
+                    <img src="https://bizweb.dktcdn.net/thumb/1024x1024/100/428/250/products/72d8bf68-e17e-49a9-bf32-873ccda567e4-jpeg.jpg?v=1686110882327" id="img-main"alt="">
+                </div>
+                    </div>
+                
+                <div class="float-left mt-5 my-3 cart-field ">
+                    <p class="font-medium text-xl my-3">Adidas</p>
+                    <p class="my-1">Áo Khoác Thời Trang Thể Thao Unisex Nam Nữ Adidas Firebird Track - ED6070</p>
+                    <p class="font-bold text-lg my-1">550.000₫</p>
+                    <p class="my-1">Phân loại</p>
+                    <button class="border my-1 border-red-600 w-[60px] rounded-sm text-red-600 ">Lẻ Áo</button>
+                    <p class="my-1">Kích cỡ</p>
+                    <div class="flex gap-1 my-3 radio-tile-group">
+                       
+                        <div class="input-container">
+                            <input id="walk" type="radio" name="radio">
+                            <div class="radio-tile ">
+                                <i class="fa-solid fa-s fa-2xs"></i>
+                              
+                            </div>
+                          </div>
+                  
+                          <div class="input-container">
+                            <input id="bike" type="radio" name="radio">
+                            <div class="radio-tile ">
+                                <i class="fa-solid fa-m fa-xl"></i>
+                              
+                            </div>
+                          </div>
+                  
+                          <div class="input-container">
+                            <input id="car" type="radio" name="radio">
+                            <div class="radio-tile ">
+                                <i class="fa-solid fa-l fa-xl"></i>
+                              
+                            </div>
+                          </div>
+                    </div>
+                    <div class="flex gap-5">
+                        <div class="buy-amount flex ">
+                            <button class="cursor-pointer minus-btn " onclick="handleMinus()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                              </svg>
+                              </button>
+                            <input class="w-[50px] text-center border " type="text" name="amount" id="amount" value="1">
+                            <button class="cursor-pointer plus-btn " onclick="handlePlus()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                              </svg>
+                              </button>
+                        </div>
+                        
+                            <button  class="addd border bg-black hover:bg-red-600  uppercase font-semibold  w-[240px] h-[40px] rounded-sm text-white">thêm vào giỏ</button>
+                            <div class="btns">
+                                <Button onclick="Toggle1()" id="btnh1" class="btn"><i class="fas fa-heart"></i></Button>
+                             
+                            </div>
+                           
+                        
+                    
+                        </div>
+                        <div id="boxs">
+                            <div class="box">
+                                <div class="flex justify-between items-center">
+                                    <div class="show my-3 font-bold text-xl">Xem Thêm Thông Tin Sản Phẩm</div>
+                                    <button class="text-[24px]">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </button>
+                                </div>            
+                                <div class="des">
+                                    Được thành lập vào năm 2002 bởi một bộ đôi tín đồ thời trang, Evo Milana đã nhanh chóng trở thành một 
+                                    trong những công ty phân phối thời trang lớn nhất 
+                                    trong việc giới thiệu các thương hiệu thời trang cao cấp và sang trọng tại Việt Nam.                             
+                                </div>
+                            </div>                       
+                        </div>
+                </div>
+        </div>
+        <div class="">
+            <p class="text-2xl underline capitalize mt-10 text-center"><b>CÓ THỂ BẠN CŨNG THÍCH</b></p>
+           
+        </div>
+        <!--silde show-->
+        <div class="container mx-auto mt-5">
+            <div class="splide">
+                <div class="splide__arrows">
+                    <button class="bg-gray-900 shadow splide__arrow splide__arrow--prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                        </svg>
+                    </button>
+                    <button class="bg-gray-900 shadow splide__arrow splide__arrow--next">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="splide__track  grid grid-cols-4">
+                    <div class="splide__list gap-x-2">
+                        <div class="w-full  p-4 shadow splide__slide lg:max-w-lg">
+                            <div class="space-y-2">
+                                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/c6016700-2a47-48f2-8cf2-506a7c42fab3-jpeg.jpg?v=1686122778000"
+                                    alt="">
+                                <p>560.000đ</p>
+                                <a class="hover:text-red-500" href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                                    Nishikori</a>
+                            </div>
+                        </div>
+
+                        <div class="w-full p-4 shadow splide__slide lg:max-w-lg">
+                            <div class="space-y-2">
+                                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/c1ee41bd-f783-4d1d-999e-a1a3232828fc-jpeg.jpg?v=1686123412453"
+                                    alt="">
+
+                                <p>560.000đ</p>
+                                <a class="hover:text-red-500" href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                                    Nishikori</a>
+                            </div>
+                        </div>
+
+                        <div class="w-full p-4 shadow splide__slide lg:max-w-lg">
+                            <div class="space-y-2">
+                                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/2b78154d04bfcffa2b61ce04c24855b1-1676986570212.jpg?v=1676986575410"
+                                    alt="">
+
+                                <p>560.000đ</p>
+                                <a class="hover:text-red-500" href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                                    Nishikori</a>
+                            </div>
+                        </div>
+
+                        <div class="w-full p-4 shadow splide__slide lg:max-w-lg">
+                            <div class="space-y-2">
+                                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/912d4386f116ba23fc5ae5ee93488003-1666064193355.jpg?v=1673322816243"
+                                    alt="">
+
+                                <p>560.000đ</p>
+                                <a class="hover:text-red-500" href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                                    Nishikori</a>
+                            </div>
+                        </div>
+
+                        <div class="w-full p-4 shadow splide__slide lg:max-w-lg">
+                            <div class="space-y-2">
+                                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/sg-11134201-23010-5gktq2p70xlv27-1678845268202.jpg?v=1678845272907"
+                                    alt="">
+                                <p>560.000đ</p>
+                                <a class="hover:text-red-500" href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                                    Nishikori</a>
+                            </div>
+                        </div>
+                        <div class="w-full p-4 shadow splide__slide lg:max-w-lg">
+                            <div class="space-y-2">
+                                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/sg-11134201-23010-wwmzgn1raylvd3-1678845287927.jpg?v=1678845291760"
+                                    alt="">
+                                <p>560.000đ</p>
+                                <a class="hover:text-red-500" href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                                    Nishikori</a>
+                            </div>
+                        </div>
+                        <div class="w-full p-4 shadow splide__slide lg:max-w-lg">
+                            <div class="space-y-2">
+                                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/sg-11134201-22120-n1b4q11agukva2-1678845331782.jpg?v=1678845346113"
+                                    alt="">
+                                <p>560.000đ</p>
+                                <a class="hover:text-red-500" href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                                    Nishikori</a>
+                            </div>
+                        </div>
+                        <div class="w-full p-4 shadow splide__slide lg:max-w-lg">
+                            <div class="space-y-2">
+                                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/sg-11134201-22120-x41nznl5gvkve4-1678845629584.jpg?v=1678845633000"
+                                    alt="">
+                                <p>560.000đ</p>
+                                <a class="hover:text-red-500" href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                                    Nishikori</a>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.2/dist/js/splide.min.js"></script>
+            <script>
+                var splide = new Splide('.splide', {
+                    type: 'loop',
+                    speed:1000,
+                    autoplay: true,
+                });
+
+                splide.mount();
+            </script>
+
+<div class=" text-center">
+    <p class="text-2xl underline capitalize mt-10"><b>SAN PHAM LIEN QUAN</b></p>
+</div>
+<section class="slider-container">
+<div class="container">
+<div class="swiper card-slider">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="img-box ">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/8147025c-7c57-4bb9-be8d-006fe3d63a01-jpeg.jpg?v=1686125334000" alt="">
+                <p class="">560.000đ</p>
+                <a class="hover:text-red-500 " href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                Nishikori</a>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="img-box">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/7194b4b0-c337-4263-9a68-f94f670bbf32-jpeg.jpg?v=1686139624000" alt="">
+                <p class="">560.000đ</p>
+                <a class="hover:text-red-500 " href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                Nishikori</a>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="img-box">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/vn-11134201-23020-hisuxzlb2lnvac-1676561077053.jpg?v=1677725815020" alt="">
+                <p class="">560.000đ</p>
+                <a class="hover:text-red-500 " href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                Nishikori</a>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="img-box">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/0ede8ea8-8ff1-4446-b236-7bad85524e80-jpeg.jpg?v=1686152614000" alt="">
+                <p class="">560.000đ</p>
+                <a class="hover:text-red-500 " href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                Nishikori</a>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="img-box">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/vn-11134201-23020-hisuxzlb2lnvac-1676561077053.jpg?v=1677725815020" alt="">
+                <p class="">560.000đ</p>
+                <a class="hover:text-red-500 " href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                Nishikori</a>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="img-box ">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/428/250/products/vn-11134201-23020-hisuxzlb2lnvac-1676561077053.jpg?v=1677725815020" alt="">
+                <p class="">560.000đ</p>
+                <a class="hover:text-red-500 " href="">Bộ Quần Áo Thể Thao Nam Uniqlo Tennis Kei
+                Nishikori</a>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+</div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+var swiper = new Swiper(".card-slider", {
+
+slidesPerView: 4,
+speed:1000,
+spaceBetween: 30,
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+navigation: {
+nextEl: ".swiper-button-next",
+prevEl: ".swiper-button-prev",
+},
+});
+</script>
+<!--Thương hiệu nổi bật-->
+            <div class="text-center">
+                <p class="text-2xl underline  mt-10"><b>THƯƠNG HIỆU NỔI BẬT</p>
+            </div>
+            <div class="flex   justify-around">
+                <div><img class="w-[100px] h-[100px]"
+                        src="https://bizweb.dktcdn.net/100/428/250/themes/822996/assets/partner_1.jpg?1681911001649"
+                        alt=""></div>
+                <div><img class="w-[100px] h-[100px]"
+                        src="https://bizweb.dktcdn.net/100/428/250/themes/822996/assets/partner_2.jpg?1681911001649"
+                        alt=""></div>
+                <div><img class="w-[100px] h-[100px]"
+                        src="https://bizweb.dktcdn.net/100/428/250/themes/822996/assets/partner_4.jpg?1681911001649"
+                        alt=""></div>
+                <div><img class="w-[100px] h-[100px]"
+                        src="https://bizweb.dktcdn.net/100/428/250/themes/822996/assets/partner_5.jpg?1681911001649"
+                        alt=""></div>
+                <div><img class="w-[100px] h-[100px]"
+                        src="https://bizweb.dktcdn.net/100/428/250/themes/822996/assets/partner_7.jpg?1681911001649"
+                        alt=""></div>
+            </div>
+        </main>
+        <!--End Main-->
+
+        <!--footer-->
+        <footer>
+            <div class=" grid grid-cols-4 gap-5 bg-slate-100 px-10 leading-[50px]">
+                <div class="">
+                    <img class="w-[200px]"
+                        src="https://bizweb.dktcdn.net/100/428/250/themes/822996/assets/footer-logo.png?1681911001649"
+                        alt="">
+                    <p>Địa chỉ: 20 Nghĩa Đô - Q.Cầu Giấy - TP.Hà Nội</p>
+                    <p>Email:</p>
+                    <p>Điện thoại: 0835 588 555</p>
+                    <p>Zalo: 0835 588 555</p>
+                </div>
+                <div>
+                    <p>Sản phẩm</p>
+                    <p>Trang chủ</p>
+                    <p>Giới thiệu</p>
+                    <p>Sản phẩm</p>
+                    <p>Liên hệ</p>
+                    <p>Cộng Tác Viên</p>
+                </div>
+                <div>
+                    <p>Hỗ trợ khách hàng</p>
+                    <p>Chính sách thanh toán</p>
+                    <p>Chính sách vận chuyển </p>
+                    <p>Chính sách bảo mật</p>
+                </div>
+                <div>
+                    <p>Fanpage</p>
+                    <img src="https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/340968158_764848581834419_5670796682879734898_n.png?stp=dst-png_s403x403&_nc_cat=100&ccb=1-7&_nc_sid=dd9801&_nc_ohc=DoB29IUrJUgAX8Nk0DL&_nc_ht=scontent.fhan17-1.fna&edm=ADwmN6EEAAAA&oh=00_AfA8KokMm8bRUXMzcd0f9F5ZsMbnYnNZKHaaQwo7uScoYA&oe=64A0917B"
+                        alt="">
+                </div>
+            </div>
+            <div class=" bg-red-800 my-10 h-[80px] flex gap-4 items-center  ">
+                <div>
+                    <p class="text-white pl-[200px] text-base">Nhận thông tin khuyến mãi mới nhất từ Thể Thao Store</p>
+                </div>
+                <div class="">
+                    <form class="border rounded-md" action="">
+                        <input class="text-xl pl-5 h-[50px] w-[300px]" type="text" placeholder="Địa Chỉ Email">
+                        <button class="text-white w-[100px] pr-4">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+
+
+        </footer>
+        <div class="fixed z-index top-0 left-0 bottom-0 right-0 justify-end hidden gio-hang">
+            <div class="flex  justify-between w-1/4 h-full px-4 uppercase pt-5 bg-slate-100 ">
+                <div class="card">
+                    <p class="uppercase text-2xl">Giỏ Hàng</p>
+                    <ul class="listCard">
+                    </ul>
+                    <div class="checkOut">
+                        <div class="total">0</div>
+                        
+                    </div>
+                </div>
+                
+                <div class="">
+                    <button onclick="closegioHang() ">
+                        <i class="fa-solid fa-xmark fa-2xl" style="color: #27282b;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="fixed top-0 left-0 bottom-0 right-0 justify-end hidden tim-kiem">
+            <div class="flex justify-between w-1/4 h-full px-4 uppercase pt-5 bg-slate-100 ">
+                <ul class="text-black h-[50px]">
+                    <p class="uppercase text-2xl">Tìm kiếm sản phẩm</p>
+                    <div class="mt-10 gap-0">
+
+                        <input class="border h-[60px] w-[300px] pl-5 text-xl" type="text" name="" id="">
+                        <button class="bg-red-700 hover:bg-red-600 h-[60px] w-[80px]" type="submit "><i
+                                class="fa-solid fa-magnifying-glass fa-2xl "></i></button>
+                    </div>
+                </ul>
+                <div class="">
+                    <button onclick="closeTimkiem() ">
+                        <i class="fa-solid fa-xmark fa-2xl" style="color: #27282b;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="fixed  z-index top-0 left-0 bottom-0 right-0 justify-start hidden nav-bar">
+            <div class="flex justify-between w-1/4 h-full px-4 uppercase pt-5 bg-black ">
+                <ul class="text-white h-[50px]">
+                    <li
+                        class="cursor-pointer h-[60px] text-2xl  relative after:absolute after:bottom-0 after:left-0
+                after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:ease-in-out after:duration-300">
+                        <a class="text-red-800 border-b-1" href="trangchu.html">TRANG CHỦ</a>
+                    </li>
+                    <li
+                        class="cursor-pointer h-[60px] text-2xl  relative after:absolute after:bottom-0 after:left-0
+                after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:ease-in-out after:duration-300">
+                        <a class="hover:text-red-800" href="">GIỚI THIỆU</a>
+                    </li>
+                    <li
+                        class="cursor-pointer h-[60px] text-2xl  relative after:absolute after:bottom-0 after:left-0
+                after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:ease-in-out after:duration-300">
+                        <a class="hover:text-red-800" href="">SẢN PHẨM</a>
+                    </li>
+                    <li
+                        class="cursor-pointer h-[60px] text-2xl  relative after:absolute after:bottom-0 after:left-0
+                after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:ease-in-out after:duration-300">
+                        <a class="hover:text-red-800" href="">LIÊN HỆ</a>
+                    </li>
+                    <li
+                        class="cursor-pointer h-[60px] text-2xl  relative after:absolute after:bottom-0 after:left-0
+                after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:ease-in-out after:duration-300">
+                        <a class="hover:text-red-800" href="">Yêu thích(0)</a>
+                    </li>
+                    <li
+                        class="cursor-pointer h-[60px] text-2xl  relative after:absolute after:bottom-0 after:left-0
+                after:bg-white after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:ease-in-out after:duration-300">
+                        <a class="hover:text-red-800" href="dangnhap.html">ĐĂNG NHẬP/ĐĂNG KÝ</a>
+                    </li>
+                </ul>
+                <div class="">
+                    <button onclick="closeMenu()">
+                        <i class="fa-solid fa-xmark fa-2xl " style="color: #ecf3fd;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+   <script>const menuhidden = document.querySelector('.gio-hang');
+    const menuhidden2 = document.querySelector('.tim-kiem');
+    const menuhidden1 = document.querySelector('.nav-bar');
+
+    const opengioHang = () => {
+        menuhidden.classList.remove('hidden');
+        menuhidden.classList.add('flex');
+    };
+    const closegioHang = () => {
+        menuhidden.classList.remove('flex');
+        menuhidden.classList.add('hidden');
+    };
+
+    const openMenu = () => {
+        menuhidden1.classList.remove('hidden');
+        menuhidden1.classList.add('flex');
+    };
+    const closeMenu = () => {
+        menuhidden1.classList.remove('flex');
+        menuhidden1.classList.add('hidden');
+    };
+
+    const openTimkiem = () => {
+        menuhidden2.classList.remove('hidden');
+        menuhidden2.classList.add('flex');
+    };
+    const closeTimkiem = () => {
+        menuhidden2.classList.remove('flex');
+        menuhidden2.classList.add('hidden');
+    };
+    let amountElement = document.getElementById('amount');
+    let amount = amountElement.value;
+    // console.log(amount);
+    let render = (amount)=>{
+        amountElement.value = amount
+    }
+    //Xử lý tăng
+    let handlePlus = () =>{
+        console.log(amount);
+        amount++
+        render(amount);
+    }
+    //Xử lý trừ
+    let handleMinus = ()=> {
+        if (amount>1) {
+            amount--;
+        }
+        render(amount);
+    }
+    amountElement.addEventListener('input',() =>{
+        amount =amountElement.value;
+        amount = parseInt(amount);
+        amount  = (isNaN(amount)|| amount==0)?1:amount;
+        render(amount);
+        console.log(amount);
+
+    });
+// yêu thích
+var btnvar1 = document.getElementById('btnh1');
+                        
+                        function Toggle1(){
+                                 if (btnvar1.style.color =="red") {
+                                     btnvar1.style.color = "grey"
+                                 }
+                                 else{
+                                     btnvar1.style.color = "red"
+                                 }
+                        };
+    //cônjg số lượng
+    let cart = document.querySelector('.cart');
+    let cartfield = document.querySelector('.cart-field');
+    let add = document.getElementsByClassName('addd');
+    for (let but of add) {
+        but.onclick = e=>{
+            let item = Number(cart.getAttribute('data-count') || 0);
+            cart.setAttribute('data-count', item + 1);
+            cart.classList.add('on');
+        }
+        
+    }
+    // chi tiết sản phẩm
+    document.addEventListener("DOMContentLoaded", function () {
+    const boxes = document.querySelectorAll(".box");
+
+    boxes.forEach(box => {
+        const button = box.querySelector(".fa-chevron-down");
+        const description = box.querySelector(".des");
+
+        button.addEventListener("click", function () {
+            description.classList.toggle("visible");
+            button.classList.toggle("fa-chevron-down");
+            button.classList.toggle("fa-chevron-up");
+        });
+    });
+});
+        
+    
+    </script>
+</body>
+</html>

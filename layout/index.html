@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="gap-1 my-3 radio-tile-group">
+    <div class="input-container w-[60px] text-sm h-[40px]">
+        <input class="size-input" id="L" type="radio" name="radio" value="L">
+        <div class="radio-tile w-20%">
+            <div>L</div>
+        </div>
+    </div>
+    <div class="input-container w-[60px] text-sm h-[40px]">
+      <input class="size-input" id="X" type="radio" name="radio" value="X">
+      <div class="radio-tile w-20%">
+          <div>X</div>
+      </div>
+  </div>
+  <div class="input-container w-[60px] text-sm h-[40px]">
+    <input class="size-input" id="L" type="radio" name="radio" value="L">
+    <div class="radio-tile w-20%">
+        <div>L</div>
+    </div>
+</div>
+</div>
+</body>
+<script>
+  // Gán sự kiện "change" cho tất cả các input có class "size-input"
+  const sizeInputs = document.querySelectorAll('.size-input');
+  sizeInputs.forEach(input => {
+      input.addEventListener('change', function() {
+          // Kiểm tra xem input nào đã được chọn
+          if (this.checked) {
+              const selectedSize = this.value;
+              // Xử lý kích thước đã chọn ở đây
+              console.log('Kích thước bạn đã chọn là: ' + selectedSize);
+          }
+      });
+  });
+</script>
+</html>
